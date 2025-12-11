@@ -65,7 +65,11 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
 
   return (
     <LocaleContext.Provider value={contextValue}>
-      <IntlProvider locale={mounted ? locale : defaultLocale} messages={messages[mounted ? locale : defaultLocale]}>
+      <IntlProvider
+        locale={mounted ? locale : defaultLocale}
+        messages={messages[mounted ? locale : defaultLocale]}
+        timeZone="Asia/Seoul"
+      >
         {children}
       </IntlProvider>
     </LocaleContext.Provider>

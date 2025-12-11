@@ -178,7 +178,7 @@ export default function Header() {
                 <X size={24} />
               </motion.button>
 
-              <div className="flex flex-col gap-6 mt-16">
+              <div className="flex flex-col gap-6 mt-20 pt-4">
                 {navItems.map((item, index) => (
                   <motion.a
                     key={item.href}
