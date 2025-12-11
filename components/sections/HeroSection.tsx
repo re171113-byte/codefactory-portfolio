@@ -151,6 +151,51 @@ export default function HeroSection() {
         <Hero3D />
       </div>
 
+      {/* 모바일 전용 비주얼 (3D 대체) */}
+      <div className="absolute inset-0 lg:hidden flex items-center justify-center pointer-events-none">
+        <motion.div
+          className="relative w-64 h-64 sm:w-80 sm:h-80"
+          animate={{
+            rotate: [0, 360],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+        >
+          {/* 회전하는 그라디언트 링 */}
+          <div className="absolute inset-0 rounded-full border-2 border-primary/30" />
+          <div className="absolute inset-4 rounded-full border border-secondary/20" />
+          <div className="absolute inset-8 rounded-full border border-primary/10" />
+
+          {/* 빛나는 도트들 */}
+          <motion.div
+            className="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-primary"
+            animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          />
+          <motion.div
+            className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-secondary"
+            animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
+            transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+          />
+          <motion.div
+            className="absolute top-1/2 left-0 -translate-y-1/2 w-2 h-2 rounded-full bg-primary-light"
+            animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
+            transition={{ duration: 2, repeat: Infinity, delay: 1 }}
+          />
+          <motion.div
+            className="absolute top-1/2 right-0 -translate-y-1/2 w-2 h-2 rounded-full bg-secondary"
+            animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
+            transition={{ duration: 2, repeat: Infinity, delay: 1.5 }}
+          />
+        </motion.div>
+
+        {/* 중앙 글로우 */}
+        <div className="absolute w-32 h-32 rounded-full bg-primary/20 blur-3xl" />
+      </div>
+
       {/* 메인 콘텐츠 */}
       <div className="container relative z-10">
         <motion.div

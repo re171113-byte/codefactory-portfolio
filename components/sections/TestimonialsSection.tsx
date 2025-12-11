@@ -121,13 +121,23 @@ export default function TestimonialsSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="max-w-4xl mx-auto"
         >
-          <div
+          <motion.div
             ref={cardRef}
-            className="relative"
+            className="relative touch-pan-y"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             onFocus={handleMouseEnter}
             onBlur={handleMouseLeave}
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.1}
+            onDragEnd={(_, info) => {
+              if (info.offset.x > 50) {
+                prev();
+              } else if (info.offset.x < -50) {
+                next();
+              }
+            }}
           >
             {/* 인용부호 */}
             <Quote className="absolute -top-4 -left-4 w-16 h-16 text-primary/20 rotate-180" />
@@ -203,7 +213,7 @@ export default function TestimonialsSection() {
                 <ChevronRight size={24} />
               </motion.button>
             </div>
-          </div>
+          </motion.div>
 
           {/* 진행 바 */}
           {!prefersReducedMotion && (

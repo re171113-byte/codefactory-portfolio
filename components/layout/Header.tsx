@@ -164,7 +164,7 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="absolute right-0 top-0 bottom-0 w-3/4 max-w-sm bg-background-card border-l border-border p-8 pt-24"
+              className="absolute right-0 top-0 bottom-0 w-3/4 max-w-sm bg-background-card border-l border-border p-8 pt-24 safe-area-top safe-area-bottom safe-area-right"
             >
               <div className="flex flex-col gap-6">
                 {navItems.map((item, index) => (

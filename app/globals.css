@@ -589,6 +589,103 @@ select:focus-visible {
 }
 
 /* ============================================
+   모바일 최적화 스타일
+   ============================================ */
+
+/* 터치 타겟 최소 크기 보장 (44x44px) */
+@media (pointer: coarse) {
+  button,
+  a,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* 터치 피드백 */
+  button:active,
+  a:active,
+  [role="button"]:active {
+    opacity: 0.7;
+    transform: scale(0.98);
+  }
+
+  /* 호버 효과 비활성화 (터치에서 불필요) */
+  .hover\:scale-105:hover {
+    transform: none;
+  }
+}
+
+/* Safe Area 지원 (iPhone X+, 노치 기기) */
+@supports (padding-top: env(safe-area-inset-top)) {
+  .safe-area-top {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .safe-area-left {
+    padding-left: env(safe-area-inset-left);
+  }
+
+  .safe-area-right {
+    padding-right: env(safe-area-inset-right);
+  }
+
+  .safe-area-all {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+/* 모바일 섹션 패딩 조정 */
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .section-sm {
+    padding: 48px 0;
+  }
+
+  /* 그라디언트 오브 모바일 최적화 */
+  .gradient-orb-1 {
+    width: 300px;
+    height: 300px;
+    top: -100px;
+    right: -100px;
+    opacity: 0.25;
+  }
+
+  .gradient-orb-2 {
+    width: 200px;
+    height: 200px;
+    bottom: -50px;
+    left: -50px;
+    opacity: 0.2;
+  }
+}
+
+/* 모바일 타이포그래피 */
+@media (max-width: 639px) {
+  h1 {
+    font-size: 2.25rem !important; /* 36px */
+    line-height: 1.2 !important;
+  }
+
+  h2 {
+    font-size: 1.75rem !important; /* 28px */
+  }
+
+  h3 {
+    font-size: 1.25rem !important; /* 20px */
+  }
+}
+
+/* ============================================
    라이트 모드 종합 스타일 오버라이드
    ============================================ */
 

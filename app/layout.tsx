@@ -7,6 +7,7 @@ import { LocaleProvider } from "@/providers/LocaleProvider";
 import CustomCursor from "@/components/layout/CustomCursor";
 import LoadingScreen from "@/components/layout/LoadingScreen";
 import ScrollProgress from "@/components/ui/ScrollProgress";
+import FloatingContactButton from "@/components/ui/FloatingContactButton";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -209,6 +210,9 @@ export default function RootLayout({
               {/* 메인 콘텐츠 */}
               {children}
             </LenisProvider>
+
+            {/* 모바일 FAB (Contact 바로가기) */}
+            <FloatingContactButton />
 
             {/* Vercel Analytics & Speed Insights */}
             <Analytics />
