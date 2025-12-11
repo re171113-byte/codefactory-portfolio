@@ -164,9 +164,21 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="absolute right-0 top-0 bottom-0 w-3/4 max-w-sm bg-background-card border-l border-border p-8 pt-24 safe-area-top safe-area-bottom safe-area-right"
+              className="absolute right-0 top-0 bottom-0 w-3/4 max-w-sm bg-background-card border-l border-border p-8 safe-area-top safe-area-bottom safe-area-right"
             >
-              <div className="flex flex-col gap-6">
+              {/* 닫기 버튼 */}
+              <motion.button
+                initial={{ opacity: 0, rotate: -90 }}
+                animate={{ opacity: 1, rotate: 0 }}
+                transition={{ delay: 0.2 }}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="absolute top-6 right-6 p-2 text-foreground-muted hover:text-foreground transition-colors"
+                aria-label={t("close")}
+              >
+                <X size={24} />
+              </motion.button>
+
+              <div className="flex flex-col gap-6 mt-16">
                 {navItems.map((item, index) => (
                   <motion.a
                     key={item.href}
