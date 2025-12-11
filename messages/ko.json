@@ -22,10 +22,16 @@
     "skipToContent": "본문으로 바로가기"
   },
   "hero": {
-    "greeting": "안녕하세요, 저는",
+    "greeting": "안녕하세요",
     "name": "코드팩토리",
     "role": "웹/앱 개발자",
-    "description": "아이디어를 현실로 만드는 풀스택 개발자",
+    "roles": {
+      "fullstack": "풀스택 개발자",
+      "frontend": "프론트엔드 개발자",
+      "backend": "백엔드 개발자",
+      "mobile": "모바일 앱 개발자"
+    },
+    "description": "세상의 모든 아이디어를 현실로 만듭니다",
     "available": "Available for new projects",
     "cta": {
       "portfolio": "포트폴리오 보기",

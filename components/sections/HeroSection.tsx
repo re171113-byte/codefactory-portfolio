@@ -1,10 +1,9 @@
 "use client";
 
-import { useState, useRef, Suspense } from "react";
+import { useState, useRef, useEffect } from "react";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { ArrowDown, Sparkles } from "lucide-react";
-import { profile } from "@/data/profile";
 import { useTranslations } from "next-intl";
 
 // 3D 컴포넌트 동적 로드 (SSR 비활성화)
@@ -20,8 +19,49 @@ const Hero3D = dynamic(() => import("@/components/three/Hero3D"), {
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
   const t = useTranslations("hero");
   const tCommon = useTranslations("common");
+
+  // 타이핑할 역할들
+  const roles = [
+    t("roles.fullstack"),
+    t("roles.frontend"),
+    t("roles.backend"),
+    t("roles.mobile"),
+  ];
+
+  // 타이핑 애니메이션
+  useEffect(() => {
+    const currentRole = roles[roleIndex];
+    const typingSpeed = isDeleting ? 50 : 100;
+    const pauseTime = isDeleting ? 500 : 2000;
+
+    if (!isDeleting && displayText === currentRole) {
+      // 완성 후 대기
+      const timeout = setTimeout(() => setIsDeleting(true), pauseTime);
+      return () => clearTimeout(timeout);
+    }
+
+    if (isDeleting && displayText === "") {
+      // 삭제 완료 후 다음 역할
+      setIsDeleting(false);
+      setRoleIndex((prev) => (prev + 1) % roles.length);
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      if (isDeleting) {
+        setDisplayText(currentRole.slice(0, displayText.length - 1));
+      } else {
+        setDisplayText(currentRole.slice(0, displayText.length + 1));
+      }
+    }, typingSpeed);
+
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, roleIndex, roles]);
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (sectionRef.current) {
@@ -159,12 +199,17 @@ export default function HeroSection() {
             })}
           </h1>
 
-          {/* 직함 */}
+          {/* 직함 - 타이핑 애니메이션 */}
           <motion.h2
             variants={itemVariants}
-            className="text-2xl md:text-3xl lg:text-4xl font-medium text-foreground mb-6"
+            className="text-2xl md:text-3xl lg:text-4xl font-medium text-foreground mb-6 h-[1.5em]"
           >
-            {t("role")}
+            <span className="gradient-text">{displayText}</span>
+            <motion.span
+              animate={{ opacity: [1, 0] }}
+              transition={{ duration: 0.5, repeat: Infinity, repeatType: "reverse" }}
+              className="inline-block w-[3px] h-[1em] bg-primary ml-1 align-middle"
+            />
           </motion.h2>
 
           {/* 태그라인 */}

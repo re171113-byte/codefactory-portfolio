@@ -2,11 +2,11 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Globe, Smartphone, Palette, Rocket, Check } from "lucide-react";
+import { Globe, Smartphone, Palette, Rocket, Check, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 
-const iconMap: Record<string, React.ElementType> = {
+const iconMap: Record<string, LucideIcon> = {
   Globe,
   Smartphone,
   Palette,

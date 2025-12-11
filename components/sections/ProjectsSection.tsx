@@ -15,7 +15,7 @@ export default function ProjectsSection() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
   const t = useTranslations("projects");
   const tc = useTranslations("common");
 
@@ -23,7 +23,7 @@ export default function ProjectsSection() {
     { value: "all", label: t("filter.all") },
     { value: "web", label: t("filter.web") },
     { value: "app", label: t("filter.app") },
-    { value: "uiux", label: t("filter.uiux") },
+    { value: "design", label: t("filter.uiux") },
     { value: "landing", label: t("filter.landing") },
   ];
 
@@ -41,25 +41,6 @@ export default function ProjectsSection() {
     activeCategory === "all"
       ? projects
       : projects.filter((p) => p.category === activeCategory);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" as const },
-    },
-  };
 
   return (
     <section ref={sectionRef} id="projects" className="section relative">
@@ -113,24 +94,21 @@ export default function ProjectsSection() {
         </motion.div>
 
         {/* 프로젝트 그리드 (벤토 스타일) */}
-        <motion.div
+        <div
           id="projects-grid"
           role="tabpanel"
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project) => (
+            {filteredProjects.map((project, index) => (
               <motion.article
                 key={project.id}
-                variants={itemVariants}
                 layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.4 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
                 className={cn(
                   "group relative rounded-2xl overflow-hidden bg-background-card border border-border cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background",
                   project.gridSize === "large" && "md:col-span-2 md:row-span-2",
@@ -215,7 +193,7 @@ export default function ProjectsSection() {
               </motion.article>
             ))}
           </AnimatePresence>
-        </motion.div>
+        </div>
 
         {/* 더보기 버튼 */}
         <motion.div

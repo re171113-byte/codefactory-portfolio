@@ -22,10 +22,16 @@
     "skipToContent": "Skip to Content"
   },
   "hero": {
-    "greeting": "Hello, I'm",
+    "greeting": "Hello",
     "name": "CODE\nFACTORY",
     "role": "Web/App Developer",
-    "description": "A full-stack developer who turns ideas into reality",
+    "roles": {
+      "fullstack": "Full-Stack Developer",
+      "frontend": "Frontend Developer",
+      "backend": "Backend Developer",
+      "mobile": "Mobile App Developer"
+    },
+    "description": "Turning every idea in the world into reality",
     "available": "Available for new projects",
     "cta": {
       "portfolio": "View Portfolio",

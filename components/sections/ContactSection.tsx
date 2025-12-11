@@ -12,6 +12,7 @@ import {
   ArrowLeft,
   ArrowRight,
   Check,
+  type LucideIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
@@ -29,7 +30,7 @@ type BudgetOption = {
   description: string;
 };
 
-const iconMap: Record<string, React.ElementType> = {
+const iconMap: Record<string, LucideIcon> = {
   Globe,
   Smartphone,
   Palette,

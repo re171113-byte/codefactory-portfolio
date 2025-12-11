@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/providers/ThemeProvider";
 import { LocaleProvider } from "@/providers/LocaleProvider";
 import CustomCursor from "@/components/layout/CustomCursor";
 import LoadingScreen from "@/components/layout/LoadingScreen";
+import ScrollProgress from "@/components/ui/ScrollProgress";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -190,6 +191,9 @@ export default function RootLayout({
 
             {/* 커스텀 커서 */}
             <CustomCursor />
+
+            {/* 스크롤 프로그레스 바 */}
+            <ScrollProgress />
 
             {/* Lenis 스무스 스크롤 Provider */}
             <LenisProvider>
