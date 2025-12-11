@@ -154,6 +154,12 @@ export default function RootLayout({
   return (
     <html lang="ko" className={`${inter.variable} ${notoSansKr.variable}`} suppressHydrationWarning>
       <head>
+        {/* 리소스 힌트 - 성능 최적화 */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://vercel.com" />
+
         {/* PWA 메타 태그 */}
         <link rel="manifest" href="/manifest.json" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />

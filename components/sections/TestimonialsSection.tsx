@@ -17,7 +17,8 @@ export default function TestimonialsSection() {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const isInViewOnce = useInView(sectionRef, { once: true, margin: "-100px" });
+  const isInViewContinuous = useInView(sectionRef, { amount: 0.1 }); // 자동 슬라이드용
   const t = useTranslations("testimonials");
 
   // prefers-reduced-motion 감지
@@ -33,16 +34,16 @@ export default function TestimonialsSection() {
     return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
 
-  // 자동 슬라이드 (5초마다)
+  // 자동 슬라이드 (5초마다) - 뷰포트 내에서만 실행
   useInterval(
     () => {
       setCurrentIndex((prev) => (prev + 1) % testimonials.length);
       setProgress(0);
     },
-    isPaused || prefersReducedMotion ? null : AUTO_SLIDE_INTERVAL
+    isPaused || prefersReducedMotion || !isInViewContinuous ? null : AUTO_SLIDE_INTERVAL
   );
 
-  // 진행 바 업데이트 (100ms마다)
+  // 진행 바 업데이트 (100ms마다) - 뷰포트 내에서만 실행
   useInterval(
     () => {
       setProgress((prev) => {
@@ -50,7 +51,7 @@ export default function TestimonialsSection() {
         return Math.min(prev + increment, 100);
       });
     },
-    isPaused || prefersReducedMotion ? null : 100
+    isPaused || prefersReducedMotion || !isInViewContinuous ? null : 100
   );
 
   const next = () => {
@@ -99,7 +100,7 @@ export default function TestimonialsSection() {
         {/* 헤더 */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          animate={isInViewOnce ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
@@ -117,7 +118,7 @@ export default function TestimonialsSection() {
         {/* 캐러셀 */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+          animate={isInViewOnce ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="max-w-4xl mx-auto"
         >

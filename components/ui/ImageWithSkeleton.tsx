@@ -6,12 +6,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import type { ImageWithSkeletonProps } from "@/types";
 
+// 기본 blur placeholder (10x10 투명 그레이)
+const DEFAULT_BLUR_DATA_URL =
+  "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjMTMxQzMxIi8+PC9zdmc+";
+
 export default function ImageWithSkeleton({
   src,
   alt,
   className,
   skeletonClassName,
   containerClassName,
+  placeholder = "blur",
+  blurDataURL = DEFAULT_BLUR_DATA_URL,
   ...props
 }: ImageWithSkeletonProps) {
   const [isLoading, setIsLoading] = useState(true);
@@ -72,6 +78,8 @@ export default function ImageWithSkeleton({
         <Image
           src={src}
           alt={alt}
+          placeholder={placeholder}
+          blurDataURL={blurDataURL}
           className={cn(
             "transition-transform duration-500",
             className

@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import dynamic from "next/dynamic";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { ArrowDown, Sparkles } from "lucide-react";
 import { useTranslations } from "next-intl";
 
@@ -18,6 +18,7 @@ const Hero3D = dynamic(() => import("@/components/three/Hero3D"), {
 
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useInView(sectionRef, { amount: 0.1 });
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
@@ -33,8 +34,10 @@ export default function HeroSection() {
     t("roles.mobile"),
   ];
 
-  // 타이핑 애니메이션
+  // 타이핑 애니메이션 - 뷰포트 내에서만 실행
   useEffect(() => {
+    if (!isInView) return; // 뷰포트 밖이면 애니메이션 중지
+
     const currentRole = roles[roleIndex];
     const typingSpeed = isDeleting ? 50 : 100;
     const pauseTime = isDeleting ? 500 : 2000;
@@ -61,7 +64,7 @@ export default function HeroSection() {
     }, typingSpeed);
 
     return () => clearTimeout(timeout);
-  }, [displayText, isDeleting, roleIndex, roles]);
+  }, [displayText, isDeleting, roleIndex, roles, isInView]);
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (sectionRef.current) {
@@ -151,16 +154,14 @@ export default function HeroSection() {
         <Hero3D />
       </div>
 
-      {/* 모바일 전용 비주얼 (3D 대체) */}
+      {/* 모바일 전용 비주얼 (3D 대체) - 뷰포트 내에서만 애니메이션 */}
       <div className="absolute inset-0 lg:hidden flex items-center justify-center pointer-events-none">
         <motion.div
           className="relative w-64 h-64 sm:w-80 sm:h-80"
-          animate={{
-            rotate: [0, 360],
-          }}
+          animate={isInView ? { rotate: [0, 360] } : { rotate: 0 }}
           transition={{
             duration: 20,
-            repeat: Infinity,
+            repeat: isInView ? Infinity : 0,
             ease: "linear",
           }}
         >
@@ -169,26 +170,26 @@ export default function HeroSection() {
           <div className="absolute inset-4 rounded-full border border-secondary/20" />
           <div className="absolute inset-8 rounded-full border border-primary/10" />
 
-          {/* 빛나는 도트들 */}
+          {/* 빛나는 도트들 - 뷰포트 내에서만 애니메이션 */}
           <motion.div
             className="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-primary"
-            animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
-            transition={{ duration: 2, repeat: Infinity }}
+            animate={isInView ? { scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] } : { scale: 1, opacity: 0.5 }}
+            transition={{ duration: 2, repeat: isInView ? Infinity : 0 }}
           />
           <motion.div
             className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-secondary"
-            animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
-            transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+            animate={isInView ? { scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] } : { scale: 1, opacity: 0.5 }}
+            transition={{ duration: 2, repeat: isInView ? Infinity : 0, delay: 0.5 }}
           />
           <motion.div
             className="absolute top-1/2 left-0 -translate-y-1/2 w-2 h-2 rounded-full bg-primary-light"
-            animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
-            transition={{ duration: 2, repeat: Infinity, delay: 1 }}
+            animate={isInView ? { scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] } : { scale: 1, opacity: 0.5 }}
+            transition={{ duration: 2, repeat: isInView ? Infinity : 0, delay: 1 }}
           />
           <motion.div
             className="absolute top-1/2 right-0 -translate-y-1/2 w-2 h-2 rounded-full bg-secondary"
-            animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
-            transition={{ duration: 2, repeat: Infinity, delay: 1.5 }}
+            animate={isInView ? { scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] } : { scale: 1, opacity: 0.5 }}
+            transition={{ duration: 2, repeat: isInView ? Infinity : 0, delay: 1.5 }}
           />
         </motion.div>
 
@@ -251,8 +252,8 @@ export default function HeroSection() {
           >
             <span className="gradient-text">{displayText}</span>
             <motion.span
-              animate={{ opacity: [1, 0] }}
-              transition={{ duration: 0.5, repeat: Infinity, repeatType: "reverse" }}
+              animate={isInView ? { opacity: [1, 0] } : { opacity: 1 }}
+              transition={{ duration: 0.5, repeat: isInView ? Infinity : 0, repeatType: "reverse" }}
               className="inline-block w-[3px] h-[1em] bg-primary ml-1 align-middle"
             />
           </motion.h2>
@@ -300,7 +301,7 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      {/* 스크롤 힌트 */}
+      {/* 스크롤 힌트 - 뷰포트 내에서만 애니메이션 */}
       <motion.button
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -311,8 +312,8 @@ export default function HeroSection() {
       >
         <span className="text-sm" aria-hidden="true">{tCommon("scrollDown")}</span>
         <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          animate={isInView ? { y: [0, 8, 0] } : { y: 0 }}
+          transition={{ duration: 1.5, repeat: isInView ? Infinity : 0, ease: "easeInOut" }}
           aria-hidden="true"
         >
           <ArrowDown size={20} />
