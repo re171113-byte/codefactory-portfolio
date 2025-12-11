@@ -36,7 +36,7 @@ const blindVariants = {
     scaleY: 0,
     transition: {
       duration: 0.6,
-      ease: [0.76, 0, 0.24, 1],
+      ease: [0.76, 0, 0.24, 1] as const,
       delay: 0.1,
     },
   },
@@ -44,7 +44,7 @@ const blindVariants = {
     scaleY: 1,
     transition: {
       duration: 0.4,
-      ease: [0.76, 0, 0.24, 1],
+      ease: [0.76, 0, 0.24, 1] as const,
     },
   },
 };

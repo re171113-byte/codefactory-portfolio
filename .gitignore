@@ -45,3 +45,6 @@ next-env.d.ts
 
 # Debug
 .debug/
+
+.vercel
+.env*.local
