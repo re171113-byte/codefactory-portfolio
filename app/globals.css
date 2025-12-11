@@ -1,0 +1,759 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   코드팩토리 포트폴리오 - 전역 스타일
+   Premium Portfolio Global Styles
+   ============================================ */
+
+/* CSS 변수 정의 - 다크 모드 (기본) */
+:root {
+  /* 배경 (딥 퍼플) */
+  --background: #0F0F1A;
+  --background-card: #1A1A2E;
+  --background-hover: #252538;
+
+  /* 프라이머리 (바이올렛) */
+  --primary: #8B5CF6;
+  --primary-light: #A78BFA;
+  --primary-dark: #7C3AED;
+
+  /* 세컨더리 (핑크) */
+  --secondary: #EC4899;
+  --secondary-light: #F472B6;
+
+  /* 텍스트 (WCAG AA 4.5:1 이상 보장) */
+  --foreground: #F8FAFC;          /* 대비 ~19:1 ✓ */
+  --foreground-muted: #B4B4BD;    /* 대비 ~8.5:1 ✓ (기존 #A1A1AA에서 향상) */
+  --foreground-subtle: #9898A4;   /* 대비 ~5.8:1 ✓ (기존 #71717A에서 향상) */
+
+  /* 보더 */
+  --border: #2D2D44;
+
+  /* 글로우 */
+  --glow: rgba(139, 92, 246, 0.3);
+  --glow-strong: rgba(139, 92, 246, 0.5);
+
+  /* Hero 그리드 */
+  --grid-color: rgba(139, 92, 246, 0.15);
+  --grid-glow-color: rgba(139, 92, 246, 0.4);
+  --spotlight-color: rgba(139, 92, 246, 0.15);
+
+  /* 헤더 그림자 */
+  --header-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+
+  /* 그라디언트 */
+  --gradient-primary: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+  --gradient-primary-hover: linear-gradient(135deg, #7C3AED 0%, #DB2777 100%);
+}
+
+/* 라이트 모드 */
+html[data-theme="light"],
+:root[data-theme="light"] {
+  /* 배경 - 더 구분되게 */
+  --background: #FFFFFF !important;
+  --background-card: #F8FAFC !important;
+  --background-hover: #F1F5F9 !important;
+
+  /* 프라이머리 (바이올렛 - 더 진하게 for better contrast) */
+  --primary: #6D28D9 !important;
+  --primary-light: #7C3AED !important;
+  --primary-dark: #5B21B6 !important;
+
+  /* 세컨더리 (핑크 - 더 진하게) */
+  --secondary: #BE185D !important;
+  --secondary-light: #DB2777 !important;
+
+  /* 텍스트 - WCAG AA 4.5:1 이상 보장 */
+  --foreground: #0F172A !important;
+  --foreground-muted: #334155 !important;
+  --foreground-subtle: #475569 !important;
+
+  /* 보더 - 더 선명하게 */
+  --border: #CBD5E1 !important;
+
+  /* 글로우 - 라이트 모드용 그림자 */
+  --glow: rgba(109, 40, 217, 0.15) !important;
+  --glow-strong: rgba(109, 40, 217, 0.25) !important;
+
+  /* 그림자 (라이트 모드 전용) */
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06) !important;
+
+  /* Hero 그리드 - 라이트 모드 */
+  --grid-color: rgba(109, 40, 217, 0.08) !important;
+  --grid-glow-color: rgba(109, 40, 217, 0.2) !important;
+  --spotlight-color: rgba(109, 40, 217, 0.08) !important;
+
+  /* 헤더 그림자 - 라이트 모드 (더 부드럽게) */
+  --header-shadow: 0 2px 20px rgba(0, 0, 0, 0.08) !important;
+
+  /* 그라디언트 - 라이트 모드 (더 진하게) */
+  --gradient-primary: linear-gradient(135deg, #6D28D9 0%, #BE185D 100%) !important;
+  --gradient-primary-hover: linear-gradient(135deg, #5B21B6 0%, #9D174D 100%) !important;
+}
+
+/* 기본 리셋 및 설정 */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Lenis 스무스 스크롤 */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-pretendard), var(--font-inter), system-ui, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 라이트 모드 body 직접 스타일링 */
+html[data-theme="light"] body {
+  background: #FFFFFF;
+  color: #0F172A;
+}
+
+/* 라이트 모드 텍스트 시인성 강화 */
+[data-theme="light"] .text-foreground {
+  color: #0F172A !important;
+}
+
+[data-theme="light"] .text-foreground-muted {
+  color: #334155 !important;
+}
+
+[data-theme="light"] .text-foreground-subtle {
+  color: #475569 !important;
+}
+
+/* 라이트 모드 카드 스타일 */
+[data-theme="light"] .bg-background-card,
+[data-theme="light"] [class*="bg-background-card"] {
+  background-color: #F8FAFC !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* 라이트 모드 반투명 배경 */
+[data-theme="light"] [class*="bg-background/"] {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+[data-theme="light"] [class*="bg-background-card/"] {
+  background-color: rgba(248, 250, 252, 0.9) !important;
+}
+
+/* 커스텀 스크롤바 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* 링크 기본 스타일 */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 선택 스타일 */
+::selection {
+  background: var(--primary);
+  color: var(--foreground);
+}
+
+/* 노이즈 텍스처 오버레이 */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+[data-theme="light"] .noise-overlay {
+  opacity: 0.015;
+}
+
+/* 그라디언트 배경 오브 */
+.gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.gradient-orb-1 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+  top: -200px;
+  right: -200px;
+}
+
+.gradient-orb-2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--primary-light) 0%, transparent 70%);
+  bottom: -100px;
+  left: -100px;
+}
+
+/* 라이트 모드에서 그라디언트 오브 조정 */
+[data-theme="light"] .gradient-orb {
+  opacity: 0.2;
+}
+
+[data-theme="light"] .gradient-orb-1 {
+  background: radial-gradient(circle, var(--primary) 0%, transparent 60%);
+}
+
+[data-theme="light"] .gradient-orb-2 {
+  background: radial-gradient(circle, var(--secondary) 0%, transparent 60%);
+}
+
+/* 글래스모피즘 */
+.glass {
+  background: rgba(19, 28, 49, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+}
+
+[data-theme="light"] .glass {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.glass-strong {
+  background: rgba(19, 28, 49, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+}
+
+[data-theme="light"] .glass-strong {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* 글로우 효과 */
+.glow {
+  box-shadow: 0 0 20px var(--glow);
+}
+
+.glow-hover:hover {
+  box-shadow: 0 0 30px var(--glow-strong);
+}
+
+/* 그라디언트 텍스트 (Purple → Pink) */
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 라이트 모드 그라디언트 텍스트 - 더 진하게 */
+[data-theme="light"] .gradient-text {
+  background: linear-gradient(135deg, #5B21B6 0%, #9D174D 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 글로우 펄스 텍스트 (웨이브 반복 효과) */
+.glow-pulse-text {
+  position: relative;
+  background: linear-gradient(
+    90deg,
+    var(--primary) 0%,
+    var(--secondary) 25%,
+    #ffffff 50%,
+    var(--secondary) 75%,
+    var(--primary) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: wave 2.5s linear infinite;
+  animation-delay: 1s; /* 초기 등장 애니메이션 후 시작 */
+}
+
+@keyframes wave {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
+/* 그라디언트 보더 */
+.gradient-border {
+  position: relative;
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* 섹션 공통 스타일 */
+.section {
+  position: relative;
+  padding: 120px 0;
+  overflow: hidden;
+}
+
+.section-sm {
+  padding: 80px 0;
+}
+
+/* 컨테이너 */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 48px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 64px;
+  }
+}
+
+/* 마그네틱 버튼 래퍼 */
+.magnetic-wrap {
+  display: inline-block;
+}
+
+/* 스크롤 힌트 애니메이션 */
+@keyframes scrollHint {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(10px);
+    opacity: 0.5;
+  }
+}
+
+.scroll-hint {
+  animation: scrollHint 2s ease-in-out infinite;
+}
+
+/* 로딩 화면 */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--background);
+}
+
+/* 3D Float 애니메이션 */
+@keyframes float {
+  0%, 100% {
+    transform: translate(-50%, -50%) translateY(0px);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-20px);
+  }
+}
+
+/* 3D Spin 애니메이션 */
+@keyframes spin {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+/* Aurora 배경 애니메이션 */
+@keyframes aurora {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.aurora-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    125deg,
+    transparent 0%,
+    rgba(139, 92, 246, 0.03) 20%,
+    rgba(236, 72, 153, 0.05) 40%,
+    rgba(139, 92, 246, 0.03) 60%,
+    transparent 80%
+  );
+  background-size: 200% 200%;
+  animation: aurora 15s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.aurora-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 80% 50% at 20% 40%,
+    rgba(236, 72, 153, 0.06) 0%,
+    transparent 50%
+  );
+  animation: aurora 20s ease-in-out infinite reverse;
+}
+
+.aurora-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 60% 40% at 80% 60%,
+    rgba(139, 92, 246, 0.05) 0%,
+    transparent 50%
+  );
+  animation: aurora 18s ease-in-out infinite;
+}
+
+/* 라이트 모드 aurora 조정 */
+[data-theme="light"] .aurora-bg {
+  background: linear-gradient(
+    125deg,
+    transparent 0%,
+    rgba(124, 58, 237, 0.02) 20%,
+    rgba(219, 39, 119, 0.03) 40%,
+    rgba(124, 58, 237, 0.02) 60%,
+    transparent 80%
+  );
+}
+
+[data-theme="light"] .aurora-bg::before {
+  background: radial-gradient(
+    ellipse 80% 50% at 20% 40%,
+    rgba(219, 39, 119, 0.04) 0%,
+    transparent 50%
+  );
+}
+
+[data-theme="light"] .aurora-bg::after {
+  background: radial-gradient(
+    ellipse 60% 40% at 80% 60%,
+    rgba(124, 58, 237, 0.03) 0%,
+    transparent 50%
+  );
+}
+
+/* 텍스트 글로우 효과 */
+.text-glow {
+  text-shadow:
+    0 0 20px rgba(139, 92, 246, 0.5),
+    0 0 40px rgba(139, 92, 246, 0.3),
+    0 0 60px rgba(139, 92, 246, 0.2);
+}
+
+/* 키보드 포커스 스타일 (WCAG 2.1 강화) */
+*:focus {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 3px solid var(--primary-light);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* 버튼, 링크 포커스 스타일 */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--primary-light);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px rgba(167, 139, 250, 0.3);
+}
+
+/* 인풋 포커스 스타일 */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 4px rgba(167, 139, 250, 0.3);
+}
+
+/* Skip to content 링크 (스크린리더 + 키보드 사용자용) */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1rem 2rem;
+  background: var(--primary);
+  color: white;
+  border-radius: 0 0 8px 8px;
+  z-index: 10000;
+  transition: top 0.3s;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* 스켈레톤 쉬머 애니메이션 */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Reduced motion 지원 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================
+   라이트 모드 종합 스타일 오버라이드
+   ============================================ */
+
+/* 라이트 모드 primary 텍스트 */
+[data-theme="light"] .text-primary {
+  color: #5B21B6 !important;
+}
+
+/* 라이트 모드 히어로 섹션 이름 텍스트 */
+[data-theme="light"] h1 .text-primary,
+[data-theme="light"] .text-primary.inline-block {
+  color: #5B21B6 !important;
+}
+
+/* 라이트 모드 보더 강화 */
+[data-theme="light"] .border-border {
+  border-color: #CBD5E1 !important;
+}
+
+[data-theme="light"] .border-primary {
+  border-color: #6D28D9 !important;
+}
+
+/* 라이트 모드 링 효과 */
+[data-theme="light"] .ring-primary\/20 {
+  --tw-ring-color: rgba(109, 40, 217, 0.2) !important;
+}
+
+/* 라이트 모드 그라디언트 버튼 */
+[data-theme="light"] .bg-gradient-primary {
+  background: linear-gradient(135deg, #6D28D9 0%, #7C3AED 100%) !important;
+}
+
+/* 라이트 모드 shadow-glow */
+[data-theme="light"] .shadow-glow {
+  box-shadow: 0 4px 15px rgba(109, 40, 217, 0.2) !important;
+}
+
+/* 라이트 모드 Hero 섹션 그리드 배경 */
+[data-theme="light"] [style*="backgroundImage"][style*="radial-gradient"] {
+  opacity: 0.5;
+}
+
+/* 라이트 모드 스킬바 배경 */
+[data-theme="light"] .bg-gradient-primary.h-full {
+  background: linear-gradient(90deg, #6D28D9 0%, #9333EA 100%) !important;
+}
+
+/* 라이트 모드 태그 */
+[data-theme="light"] .bg-background\/50 {
+  background-color: rgba(248, 250, 252, 0.8) !important;
+}
+
+/* 라이트 모드 프로젝트 카드 오버레이 */
+[data-theme="light"] .bg-background\/80 {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* 라이트 모드 인풋 스타일 */
+[data-theme="light"] input,
+[data-theme="light"] textarea,
+[data-theme="light"] select {
+  background-color: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+  color: #0F172A !important;
+}
+
+[data-theme="light"] input::placeholder,
+[data-theme="light"] textarea::placeholder {
+  color: #94A3B8 !important;
+}
+
+/* 라이트 모드 placeholder */
+[data-theme="light"] .placeholder-foreground-subtle::placeholder {
+  color: #94A3B8 !important;
+}
+
+/* 라이트 모드 스크롤바 */
+[data-theme="light"]::-webkit-scrollbar-track {
+  background: #F8FAFC;
+}
+
+[data-theme="light"]::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+}
+
+[data-theme="light"]::-webkit-scrollbar-thumb:hover {
+  background: #6D28D9;
+}
+
+/* 라이트 모드 선택 텍스트 */
+[data-theme="light"] ::selection {
+  background: #7C3AED;
+  color: #FFFFFF;
+}
+
+/* 라이트 모드 Featured 뱃지 */
+[data-theme="light"] .bg-primary.text-white {
+  background-color: #6D28D9 !important;
+}
+
+/* 라이트 모드 호버 보더 효과 */
+[data-theme="light"] .group-hover\:border-primary\/50:hover {
+  border-color: rgba(109, 40, 217, 0.5) !important;
+}
+
+/* 라이트 모드 백드롭 블러 조정 */
+[data-theme="light"] .backdrop-blur-sm {
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+[data-theme="light"] .backdrop-blur-lg {
+  backdrop-filter: blur(16px);
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* 라이트 모드 secondary 색상 */
+[data-theme="light"] .text-secondary {
+  color: #9D174D !important;
+}
+
+[data-theme="light"] .bg-secondary\/20 {
+  background-color: rgba(157, 23, 77, 0.15) !important;
+}
+
+[data-theme="light"] .border-secondary\/30 {
+  border-color: rgba(157, 23, 77, 0.3) !important;
+}
+
+/* 라이트 모드 primary 투명도 변형 */
+[data-theme="light"] .bg-primary\/10 {
+  background-color: rgba(109, 40, 217, 0.1) !important;
+}
+
+[data-theme="light"] .bg-primary\/20 {
+  background-color: rgba(109, 40, 217, 0.2) !important;
+}
+
+[data-theme="light"] .text-primary\/50 {
+  color: rgba(91, 33, 182, 0.5) !important;
+}
+
+/* 라이트 모드 호버 배경 */
+[data-theme="light"] .hover\:bg-background-hover:hover {
+  background-color: #F1F5F9 !important;
+}
+
+/* 라이트 모드 텍스트 글로우 비활성화 */
+[data-theme="light"] .text-glow {
+  text-shadow: none;
+}
+
+/* 라이트 모드 프로젝트 카드 */
+[data-theme="light"] .group:hover .group-hover\:text-primary {
+  color: #5B21B6 !important;
+}
+
+/* 라이트 모드 네비게이션 액티브 상태 */
+[data-theme="light"] nav a.text-primary {
+  color: #5B21B6 !important;
+}
+
+/* 라이트 모드 스텝 번호 */
+[data-theme="light"] .bg-primary\/20.text-primary {
+  background-color: rgba(109, 40, 217, 0.15) !important;
+  color: #5B21B6 !important;
+}

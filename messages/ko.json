@@ -1,0 +1,187 @@
+{
+  "common": {
+    "contact": "문의하기",
+    "learnMore": "자세히 보기",
+    "viewProject": "사이트 방문",
+    "github": "GitHub",
+    "close": "닫기",
+    "next": "다음",
+    "previous": "이전",
+    "scrollDown": "스크롤",
+    "backToTop": "맨 위로",
+    "theme": "테마",
+    "language": "언어",
+    "lightMode": "라이트 모드로 전환",
+    "darkMode": "다크 모드로 전환"
+  },
+  "nav": {
+    "about": "About",
+    "work": "Work",
+    "services": "Services",
+    "contact": "Contact",
+    "skipToContent": "본문으로 바로가기"
+  },
+  "hero": {
+    "greeting": "안녕하세요, 저는",
+    "name": "코드팩토리",
+    "role": "웹/앱 개발자",
+    "description": "아이디어를 현실로 만드는 풀스택 개발자",
+    "available": "Available for new projects",
+    "cta": {
+      "portfolio": "포트폴리오 보기",
+      "contact": "무료 상담 신청"
+    }
+  },
+  "about": {
+    "badge": "About Me",
+    "title": "함께 성장하는",
+    "titleHighlight": "개발 파트너",
+    "description1": "안녕하세요! 5년 이상의 경험을 가진 풀스택 개발자 코드팩토리입니다.",
+    "description2": "클라이언트의 비전을 현실로 구현하는 것을 즐기며, 최신 기술 트렌드를 활용하여 고품질의 웹사이트와 앱을 제작합니다.",
+    "description3": "숨고 플랫폼에서 150+ 프로젝트를 성공적으로 완료하였으며, 고객 만족도 98%를 유지하고 있습니다.",
+    "stats": {
+      "projects": "완료 프로젝트",
+      "clients": "만족한 고객",
+      "experience": "개발 경력",
+      "retention": "재의뢰율"
+    },
+    "skills": {
+      "title": "기술 스택",
+      "others": "그 외 기술"
+    }
+  },
+  "projects": {
+    "badge": "Portfolio",
+    "title": "최근 프로젝트",
+    "description": "다양한 클라이언트와 함께한 프로젝트들입니다. 각 프로젝트는 고유한 도전과 솔루션을 담고 있습니다.",
+    "filter": {
+      "all": "전체",
+      "web": "웹 개발",
+      "app": "앱 개발",
+      "uiux": "UI/UX",
+      "landing": "랜딩페이지"
+    },
+    "viewMore": "더 많은 프로젝트 보기",
+    "modal": {
+      "close": "모달 닫기",
+      "image": "이미지",
+      "preview": "라이브 프리뷰",
+      "openNewTab": "새 탭에서 열기",
+      "techStack": "기술 스택",
+      "loading": "사이트를 불러오는 중...",
+      "previewError": "이 사이트는 미리보기를 지원하지 않습니다.",
+      "previewErrorDetail": "보안 정책으로 인해 iframe 삽입이 제한될 수 있습니다.",
+      "imageAlt": "{title} 프로젝트 상세 이미지",
+      "previewTitle": "{title} 라이브 프리뷰",
+      "featured": "주요 프로젝트"
+    },
+    "viewDetails": "{title} 프로젝트 상세보기",
+    "thumbnailAlt": "{title} 프로젝트 썸네일"
+  },
+  "services": {
+    "badge": "Services",
+    "title": "제공 서비스",
+    "description": "고품질 웹사이트와 앱 개발부터 UI/UX 디자인까지, 디지털 제품의 모든 단계를 지원합니다.",
+    "startFrom": "~",
+    "cta": {
+      "question": "맞춤 견적이 필요하신가요?",
+      "button": "무료 상담 신청"
+    },
+    "items": {
+      "web": {
+        "title": "웹사이트 개발",
+        "description": "반응형 웹사이트부터 복잡한 웹 애플리케이션까지, 최신 기술로 완벽하게 구현합니다.",
+        "features": ["반응형 디자인", "SEO 최적화", "빠른 로딩 속도"],
+        "price": "100만원"
+      },
+      "app": {
+        "title": "앱 개발",
+        "description": "iOS와 Android를 위한 크로스 플랫폼 모바일 앱을 개발합니다.",
+        "features": ["React Native / Flutter", "네이티브 성능", "푸시 알림"],
+        "price": "200만원"
+      },
+      "uiux": {
+        "title": "UI/UX 디자인",
+        "description": "사용자 중심의 직관적인 인터페이스와 경험을 디자인합니다.",
+        "features": ["사용자 리서치", "와이어프레임", "프로토타입"],
+        "price": "50만원"
+      },
+      "landing": {
+        "title": "랜딩페이지",
+        "description": "전환율 최적화된 고퀄리티 랜딩페이지를 빠르게 제작합니다.",
+        "features": ["고전환율 디자인", "A/B 테스트 지원", "분석 도구 연동"],
+        "price": "50만원"
+      }
+    }
+  },
+  "testimonials": {
+    "badge": "Testimonials",
+    "title": "고객 후기",
+    "description": "함께 일한 클라이언트들의 생생한 후기입니다.",
+    "controls": {
+      "prev": "이전 후기",
+      "next": "다음 후기",
+      "goTo": "후기 {number}로 이동",
+      "pause": "일시정지",
+      "play": "재생"
+    }
+  },
+  "contact": {
+    "badge": "Contact",
+    "title": "프로젝트를 시작해볼까요?",
+    "description": "아래 단계를 따라 프로젝트 정보를 알려주세요. 24시간 내에 답변드리겠습니다.",
+    "steps": {
+      "service": "서비스",
+      "budget": "예산",
+      "contactInfo": "연락처"
+    },
+    "form": {
+      "serviceTitle": "어떤 서비스가 필요하세요?",
+      "serviceSubtitle": "원하시는 서비스를 선택해주세요",
+      "budgetTitle": "예상 예산은 얼마인가요?",
+      "budgetSubtitle": "대략적인 예산을 선택해주세요",
+      "contactTitle": "연락처를 남겨주세요",
+      "contactSubtitle": "담당자가 빠르게 연락드리겠습니다",
+      "name": "이름",
+      "email": "이메일",
+      "phone": "연락처",
+      "message": "프로젝트 설명",
+      "submit": "견적 요청하기",
+      "sending": "전송 중...",
+      "success": "견적 요청이 완료되었습니다!",
+      "successMessage": "빠른 시일 내에 연락드리겠습니다.",
+      "error": "전송에 실패했습니다. 다시 시도해주세요."
+    },
+    "serviceOptions": {
+      "website": "웹사이트",
+      "websiteDesc": "반응형 웹사이트 개발",
+      "app": "앱 개발",
+      "appDesc": "iOS/Android 앱",
+      "uiux": "UI/UX",
+      "uiuxDesc": "디자인 & 프로토타입",
+      "landing": "랜딩페이지",
+      "landingDesc": "고전환율 랜딩",
+      "other": "기타",
+      "otherDesc": "컨설팅, 유지보수 등"
+    },
+    "budgetOptions": {
+      "under100": "100만원 미만",
+      "under100Desc": "소규모 프로젝트",
+      "100to300": "100~300만원",
+      "100to300Desc": "중간 규모 프로젝트",
+      "300to500": "300~500만원",
+      "300to500Desc": "대규모 프로젝트",
+      "over500": "500만원 이상",
+      "over500Desc": "엔터프라이즈 프로젝트",
+      "negotiable": "협의",
+      "negotiableDesc": "상담 후 결정"
+    }
+  },
+  "footer": {
+    "description": "아이디어를 현실로 만드는 풀스택 개발자.\n함께 멋진 프로젝트를 만들어보세요.",
+    "navigation": "Navigation",
+    "contactTitle": "Contact",
+    "copyright": "© {year} 코드팩토리. All rights reserved.",
+    "location": "서울, 대한민국"
+  }
+}

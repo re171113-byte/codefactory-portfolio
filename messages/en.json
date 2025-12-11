@@ -1,0 +1,187 @@
+{
+  "common": {
+    "contact": "Contact",
+    "learnMore": "Learn More",
+    "viewProject": "Visit Site",
+    "github": "GitHub",
+    "close": "Close",
+    "next": "Next",
+    "previous": "Previous",
+    "scrollDown": "Scroll",
+    "backToTop": "Back to Top",
+    "theme": "Theme",
+    "language": "Language",
+    "lightMode": "Switch to Light Mode",
+    "darkMode": "Switch to Dark Mode"
+  },
+  "nav": {
+    "about": "About",
+    "work": "Work",
+    "services": "Services",
+    "contact": "Contact",
+    "skipToContent": "Skip to Content"
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "name": "CODE\nFACTORY",
+    "role": "Web/App Developer",
+    "description": "A full-stack developer who turns ideas into reality",
+    "available": "Available for new projects",
+    "cta": {
+      "portfolio": "View Portfolio",
+      "contact": "Free Consultation"
+    }
+  },
+  "about": {
+    "badge": "About Me",
+    "title": "Your Growth",
+    "titleHighlight": "Development Partner",
+    "description1": "Hi! I'm CodeFactory, a full-stack developer with over 5 years of experience.",
+    "description2": "I enjoy turning client visions into reality, creating high-quality websites and apps using the latest technology trends.",
+    "description3": "I have successfully completed 150+ projects on the Soomgo platform and maintain a 98% customer satisfaction rate.",
+    "stats": {
+      "projects": "Completed Projects",
+      "clients": "Happy Clients",
+      "experience": "Years Experience",
+      "retention": "Retention Rate"
+    },
+    "skills": {
+      "title": "Tech Stack",
+      "others": "Other Technologies"
+    }
+  },
+  "projects": {
+    "badge": "Portfolio",
+    "title": "Recent Projects",
+    "description": "Projects completed with various clients. Each project contains unique challenges and solutions.",
+    "filter": {
+      "all": "All",
+      "web": "Web Dev",
+      "app": "App Dev",
+      "uiux": "UI/UX",
+      "landing": "Landing Page"
+    },
+    "viewMore": "View More Projects",
+    "modal": {
+      "close": "Close Modal",
+      "image": "Image",
+      "preview": "Live Preview",
+      "openNewTab": "Open in New Tab",
+      "techStack": "Tech Stack",
+      "loading": "Loading site...",
+      "previewError": "This site does not support preview.",
+      "previewErrorDetail": "Iframe embedding may be restricted due to security policies.",
+      "imageAlt": "{title} Project Detail Image",
+      "previewTitle": "{title} Live Preview",
+      "featured": "Featured"
+    },
+    "viewDetails": "View {title} project details",
+    "thumbnailAlt": "{title} project thumbnail"
+  },
+  "services": {
+    "badge": "Services",
+    "title": "Services Offered",
+    "description": "From high-quality website and app development to UI/UX design, we support all stages of digital products.",
+    "startFrom": "From",
+    "cta": {
+      "question": "Need a custom quote?",
+      "button": "Request Free Consultation"
+    },
+    "items": {
+      "web": {
+        "title": "Website Development",
+        "description": "From responsive websites to complex web applications, we implement them perfectly with the latest technology.",
+        "features": ["Responsive Design", "SEO Optimization", "Fast Loading Speed"],
+        "price": "$1,000"
+      },
+      "app": {
+        "title": "App Development",
+        "description": "We develop cross-platform mobile apps for iOS and Android.",
+        "features": ["React Native / Flutter", "Native Performance", "Push Notifications"],
+        "price": "$2,000"
+      },
+      "uiux": {
+        "title": "UI/UX Design",
+        "description": "We design user-centered, intuitive interfaces and experiences.",
+        "features": ["User Research", "Wireframes", "Prototypes"],
+        "price": "$500"
+      },
+      "landing": {
+        "title": "Landing Page",
+        "description": "We quickly create high-quality landing pages optimized for conversions.",
+        "features": ["High Conversion Design", "A/B Testing Support", "Analytics Integration"],
+        "price": "$500"
+      }
+    }
+  },
+  "testimonials": {
+    "badge": "Testimonials",
+    "title": "Client Reviews",
+    "description": "Real reviews from clients we've worked with.",
+    "controls": {
+      "prev": "Previous Review",
+      "next": "Next Review",
+      "goTo": "Go to Review {number}",
+      "pause": "Pause",
+      "play": "Play"
+    }
+  },
+  "contact": {
+    "badge": "Contact",
+    "title": "Ready to Start a Project?",
+    "description": "Follow the steps below to share your project details. We'll respond within 24 hours.",
+    "steps": {
+      "service": "Service",
+      "budget": "Budget",
+      "contactInfo": "Contact"
+    },
+    "form": {
+      "serviceTitle": "What service do you need?",
+      "serviceSubtitle": "Select the service you want",
+      "budgetTitle": "What's your estimated budget?",
+      "budgetSubtitle": "Select your approximate budget",
+      "contactTitle": "Leave your contact information",
+      "contactSubtitle": "Our team will get back to you quickly",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "message": "Project Description",
+      "submit": "Request Quote",
+      "sending": "Sending...",
+      "success": "Quote request completed!",
+      "successMessage": "We'll contact you soon.",
+      "error": "Failed to send. Please try again."
+    },
+    "serviceOptions": {
+      "website": "Website",
+      "websiteDesc": "Responsive website development",
+      "app": "App Dev",
+      "appDesc": "iOS/Android apps",
+      "uiux": "UI/UX",
+      "uiuxDesc": "Design & Prototypes",
+      "landing": "Landing Page",
+      "landingDesc": "High conversion landing",
+      "other": "Other",
+      "otherDesc": "Consulting, maintenance, etc."
+    },
+    "budgetOptions": {
+      "under100": "Under $1,000",
+      "under100Desc": "Small project",
+      "100to300": "$1,000~$3,000",
+      "100to300Desc": "Medium project",
+      "300to500": "$3,000~$5,000",
+      "300to500Desc": "Large project",
+      "over500": "Over $5,000",
+      "over500Desc": "Enterprise project",
+      "negotiable": "Negotiable",
+      "negotiableDesc": "To be determined"
+    }
+  },
+  "footer": {
+    "description": "A full-stack developer who turns ideas into reality.\nLet's create amazing projects together.",
+    "navigation": "Navigation",
+    "contactTitle": "Contact",
+    "copyright": "© {year} CodeFactory. All rights reserved.",
+    "location": "Seoul, South Korea"
+  }
+}
